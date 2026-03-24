@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blue Chip Staffing | Premier Staffing Solutions Nationwide</title>
+    <meta name="description" content="Connect with top talent across corporate, construction, hospitality, AI, private equity, life sciences, and quality assurance roles nationwide.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- GSAP from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #1e3a5f;
+            --navy-light: #2a4d78;
+            --blue: #3b82f6;
+            --blue-hover: #2563eb;
+            --cyan: #38bdf8;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --border-light: #e5e7eb;
+            --white: #ffffff;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        button {
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        /* ===== HEADER & NAVIGATION ===== */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--white);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+        }
+
+        .logo {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+        }
+
+        .logo a {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2px;
+            align-items: center;
+            flex: 1;
+            margin-left: 40px;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            color: var(--text-dark);
+            font-weight: 500;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background-color: var(--gray-100);
+        }
+
+        .nav-link.active {
+            color: var(--blue);
+            font-weight: 600;
+            border-bottom: 3px solid var(--blue);
+            border-radius: 0;
+        }
+
+        .dropdown-toggle::after {
+            content: '▼';
+            font-size: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-item.open .dropdown-toggle::after {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            text-align: left;
+            left: 0;
+            background: var(--white);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            min-width: 220px;
+            margin-top: 8px;
+            overflow: hidden;
+        }
+
+        .nav-item.open .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 12px 16px;
+            color: var(--text-dark);
+            font-weight: 500;
+            border-bottom: 1px solid var(--border-light);
+            transition: background-color 0.2s ease;
+        }
+
+        .dropdown-item:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-item:hover {
+            background-color: var(--gray-50);
+            color: var(--blue);
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            margin-left: auto;
+        }
+
+        .btn-primary {
+            background: var(--blue);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: var(--blue-hover);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2.5px;
+            background: var(--text-dark);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(10px, 10px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
+        }
+
+        /* ===== RESPONSIVE NAV ===== */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            nav {
+                flex-wrap: wrap;
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                gap: 0;
+                margin: 0;
+                border-bottom: 1px solid var(--border-light);
+                max-height: calc(100vh - 70px);
+                overflow-y: auto;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-item {
+                width: 100%;
+                border-bottom: 1px solid var(--border-light);
+            }
+
+            .nav-link {
+                padding: 16px 20px;
+                border-radius: 0;
+            }
+
+            .dropdown-menu {
+                position: static;
+                display: none;
+                border: none;
+                box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.05);
+                background: var(--gray-50);
+            }
+
+            .nav-item.open .dropdown-menu {
+                display: block;
+            }
+
+            .dropdown-item {
+                padding: 12px 40px;
+            }
+
+            .nav-actions {
+                width: 100%;
+                justify-content: center;
+                gap: 8px;
+                margin-top: 16px;
+                padding: 16px 20px;
+                border-top: 1px solid var(--border-light);
+                margin-left: 0;
+            }
+
+            .btn-primary {
+                flex: 1;
+                text-align: center;
+            }
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            min-height: 600px;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            background-image: linear-gradient(135deg, rgba(30, 58, 95, 0.85) 0%, rgba(42, 77, 120, 0.85) 100%), url('images/photos/professional-banner.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: var(--white);
+            max-width: 800px;
+            padding: 40px 20px;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 20px;
+            line-height: 1.2;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            margin-bottom: 40px;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-white {
+            background: var(--white);
+            color: var(--navy);
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .btn-white:hover {
+            background: var(--gray-50);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ===== DUAL PATH CARDS ===== */
+        .dual-path {
+            max-width: 1400px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .dual-path-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .dual-card {
+            position: relative;
+            height: 400px;
+            border-radius: 16px;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .dual-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .dual-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+            z-index: 1;
+        }
+
+        .dual-card-content {
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            z-index: 2;
+            padding: 40px 20px;
+        }
+
+        .dual-card h3 {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        .dual-card p {
+            font-size: 1rem;
+            margin-bottom: 24px;
+            opacity: 0.9;
+        }
+
+        .dual-card .btn-white {
+            display: inline-block;
+        }
+
+        @media (max-width: 768px) {
+            .dual-path-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .dual-card {
+                height: 300px;
+            }
+
+            .dual-card h3 {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* ===== SPECIALTIES SECTION ===== */
+        .specialties {
+            max-width: 1400px;
+            margin: 100px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--navy);
+        }
+
+        .specialties-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .specialties-grid-bottom {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .specialties-grid-bottom .specialty-card {
+            flex: 0 0 calc(25% - 15px);
+        }
+
+        .specialty-card {
+            position: relative;
+            height: 220px;
+            border-radius: 12px;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .specialty-card:hover {
+            transform: scale(1.05);
+        }
+
+        .specialty-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2));
+            transition: background 0.3s ease;
+            z-index: 1;
+        }
+
+        .specialty-card:hover::before {
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3));
+        }
+
+        .specialty-card a {
+            position: relative;
+            z-index: 2;
+            color: var(--white);
+            font-weight: 600;
+            padding: 20px;
+            width: 100%;
+            text-align: center;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .specialty-card:hover a {
+            color: var(--cyan);
+        }
+
+        @media (max-width: 768px) {
+            .specialties-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .specialties-grid-bottom {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .specialties-grid-bottom .specialty-card {
+                flex: 0 0 auto;
+                width: 100%;
+            }
+        }
+
+        /* ===== STAFFING SOLUTIONS ===== */
+        .solutions {
+            max-width: 1400px;
+            margin: 100px auto;
+            padding: 0 20px;
+        }
+
+        .solutions h2 {
+            text-align: center;
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            color: var(--navy);
+            margin-bottom: 60px;
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .solution-card {
+            background: var(--white);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .solution-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+            border-color: var(--blue);
+        }
+
+        .solution-card h3 {
+            font-size: 1.25rem;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        .solution-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* ===== STATS BAR ===== */
+        .stats-bar {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            color: var(--white);
+            padding: 60px 20px;
+            margin: 100px 0;
+        }
+
+        .stats-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: clamp(2rem, 3vw, 2.5rem);
+            margin-bottom: 8px;
+            color: var(--cyan);
+        }
+
+        .stat-item p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* ===== CTA SPLIT ===== */
+        .cta-split {
+            max-width: 1400px;
+            margin: 100px auto;
+            padding: 0 20px;
+        }
+
+        .cta-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .cta-box {
+            padding: 60px 40px;
+            border-radius: 12px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cta-box.employers {
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        .cta-box.seekers {
+            background: var(--blue);
+            color: var(--white);
+        }
+
+        .cta-box h2 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: 24px;
+        }
+
+        .cta-box .btn-white {
+            margin-top: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .cta-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .cta-box {
+                padding: 40px 20px;
+            }
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--navy);
+            color: var(--white);
+            padding: 60px 20px 20px;
+            margin-top: 100px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-section h4 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: var(--cyan);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--cyan);
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .footer-logo img {
+            height: 80px;
+            width: auto;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 30px;
+            text-align: center;
+        }
+
+        .footer-tagline {
+            font-size: 0.95rem;
+            opacity: 0.85;
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        .footer-copyright {
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        /* ===== SCROLL ANIMATIONS ===== */
+        .scroll-fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        /* ===== UTILITIES ===== */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER & NAVIGATION -->
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo/logo-standard.svg" alt="Blue Chip Staffing">
+                </a>
+            </div>
+
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="employers.html" class="nav-link">Employers</a>
+                </li>
+                <li class="nav-item">
+                    <a href="careers.html" class="nav-link">Career Seekers</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link dropdown-toggle">Specialties</a>
+                    <div class="dropdown-menu">
+                        <a href="specialties/corporate.html" class="dropdown-item">Corporate & Professional</a>
+                        <a href="specialties/construction.html" class="dropdown-item">Construction</a>
+                        <a href="specialties/hospitality.html" class="dropdown-item">Hospitality</a>
+                        <a href="specialties/ai.html" class="dropdown-item">Artificial Intelligence</a>
+                        <a href="specialties/vc-pe.html" class="dropdown-item">Venture Capital / PE</a>
+                        <a href="specialties/life-sciences.html" class="dropdown-item">Life Sciences</a>
+                        <a href="specialties/quality-control.html" class="dropdown-item">Quality Control & QA</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="resources.html" class="nav-link">Resources</a>
+                </li>
+                </li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="contact.html" class="btn-primary">Contact Us</a>
+            </div>
+
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Premier Staffing Solutions for Every Industry</h1>
+            <p>Connect with top talent across corporate, construction, hospitality, AI, private equity, life sciences, and quality assurance roles nationwide.</p>
+            <div class="hero-buttons">
+                <a href="employers.html" class="btn-white">For Employers</a>
+                <a href="careers.html" class="btn-white">For Job Seekers</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- DUAL PATH CARDS -->
+    <section class="dual-path">
+        <div class="dual-path-grid">
+            <div class="dual-card scroll-fade-in" style="background-image: url('images/photos/boardroom-meeting.jpg');">
+                <div class="dual-card-content">
+                    <h3>For Employers</h3>
+                    <p>Find vetted, qualified talent tailored to your needs. From contract positions to direct hires, we deliver results.</p>
+                    <a href="employers.html" class="btn-white">Learn More</a>
+                </div>
+            </div>
+
+            <div class="dual-card scroll-fade-in" style="background-image: url('images/photos/candidates-waiting.jpg');">
+                <div class="dual-card-content">
+                    <h3>For Job Seekers</h3>
+                    <p>Explore exciting career opportunities with top companies across diverse industries and locations.</p>
+                    <a href="careers.html" class="btn-white">Browse Jobs</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SPECIALTIES SECTION -->
+    <section class="specialties">
+        <h2 class="section-title">Expertise Across 7 Key Industries</h2>
+        <div class="specialties-grid">
+            <div class="specialty-card scroll-fade-in" style="background-image: url('images/photos/corporate-professional.jpg');">
+                <a href="specialties/corporate.html">Corporate & Professional</a>
+            </div>
+            <div class="specialty-card scroll-fade-in" style="background-image: url('images/photos/construction-workers.jpg');">
+                <a href="specialties/construction.html">Construction</a>
+            </div>
+            <div class="specialty-card scroll-fade-in" style="background-image: url('images/photos/hospitality-receptionist.jpg');">
+                <a href="specialties/hospitality.html">Hospitality</a>
+            </div>
+            <div class="specialty-card scroll-fade-in" style="background-image: url('images/photos/ai-staffing.jpg');">
+                <a href="specialties/ai.html">Artificial Intelligence</a>
+            </div>
+        </div>
+        <div class="specialties-grid-bottom">
+            <div class="specialty-card scroll-fade-in" style="background-image: url('images/photos/vc-growth.jpg');">
+                <a href="specialties/vc-pe.html">Venture Capital / PE</a>
+            </div>
+            <div class="specialty-card scroll-fade-in" style="background-image: url('images/photos/life-sciences.jpg');">
+                <a href="specialties/life-sciences.html">Life Sciences</a>
+            </div>
+            <div class="specialty-card scroll-fade-in" style="background-image: url('images/photos/quality-control.jpg');">
+                <a href="specialties/quality-control.html">Quality Control & QA</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- STAFFING SOLUTIONS -->
+    <section class="solutions">
+        <h2>6 Staffing Solutions</h2>
+        <div class="solutions-grid">
+            <div class="solution-card scroll-fade-in">
+                <h3>Contract Staffing</h3>
+                <p>Flexible staffing solutions for short-term projects and seasonal demands. Scale your workforce as needed.</p>
+            </div>
+            <div class="solution-card scroll-fade-in">
+                <h3>Contract to Hire</h3>
+                <p>Evaluate talent before making long-term commitments. Trial period leads to permanent placement when right fit is found.</p>
+            </div>
+            <div class="solution-card scroll-fade-in">
+                <h3>Managed Services</h3>
+                <p>Complete staffing department outsourcing. We manage recruitment, payroll, and compliance for your team.</p>
+            </div>
+            <div class="solution-card scroll-fade-in">
+                <h3>Payrolling Services</h3>
+                <p>Streamline operations with our payroll management. We handle taxes, benefits, and compliance reporting.</p>
+            </div>
+            <div class="solution-card scroll-fade-in">
+                <h3>Direct Hire Placement</h3>
+                <p>Permanent placements for key roles. Comprehensive recruitment process to find your next team member.</p>
+            </div>
+            <div class="solution-card scroll-fade-in">
+                <h3>Executive Search</h3>
+                <p>Specialized recruitment for C-suite and senior leadership positions. Industry expertise and extensive networks.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS BAR -->
+    <section class="stats-bar">
+        <div class="stats-container">
+            <div class="stat-item">
+                <h3>2000+</h3>
+                <p>Placements Annually</p>
+            </div>
+            <div class="stat-item">
+                <h3>50</h3>
+                <p>States Covered</p>
+            </div>
+            <div class="stat-item">
+                <h3>40+</h3>
+                <p>Industry Specialties</p>
+            </div>
+            <div class="stat-item">
+                <h3>20+</h3>
+                <p>Years of Experience</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SPLIT -->
+    <section class="cta-split">
+        <div class="cta-grid">
+            <div class="cta-box employers scroll-fade-in">
+                <h2>Ready to Hire?</h2>
+                <p>Connect with the right talent for your organization. Let us handle your staffing challenges.</p>
+                <a href="employers.html" class="btn-white">Get Started</a>
+            </div>
+            <div class="cta-box seekers scroll-fade-in">
+                <h2>Explore Opportunities</h2>
+                <p>Discover your next career opportunity with industry-leading companies across the nation.</p>
+                <a href="careers.html" class="btn-white">Search Jobs</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="images/logo/logo-inverse.svg" alt="Blue Chip Staffing">
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>For Employers</h4>
+                <ul>
+                    <li><a href="employers.html">Hire Talent</a></li>
+                    <li><a href="employers.html#solutions">Our Solutions</a></li>
+                    <li><a href="employers.html#how-it-works">How It Works</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>For Job Seekers</h4>
+                <ul>
+                    <li><a href="careers.html">Browse Jobs</a></li>
+                    <li><a href="submit-resume.html">Submit Resume</a></li>
+                    <li><a href="contact.html">Get in Touch</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <ul>
+                    <li><a href="mailto:info@bluechipstaffing.com">info@bluechipstaffing.com</a></li>
+                    <li><a href="tel:+18005551234">1-800-555-1234</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="footer-tagline">Providing companies with the highest quality talent at the most reasonable rates. Family-owned, nationally trusted.</p>
+            <p class="footer-copyright">&copy; 2024 Blue Chip Staffing LLC. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // ===== MOBILE MENU TOGGLE =====
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when nav link is clicked
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (!link.classList.contains('dropdown-toggle')) {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                }
+            });
+        });
+
+        // ===== DROPDOWN TOGGLE =====
+        document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+            toggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                const parentItem = toggle.closest('.nav-item');
+                parentItem.classList.toggle('open');
+
+                // Close other dropdowns
+                document.querySelectorAll('.nav-item.open').forEach(item => {
+                    if (item !== parentItem) {
+                        item.classList.remove('open');
+                    }
+                });
+            });
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.nav-item')) {
+                document.querySelectorAll('.nav-item.open').forEach(item => {
+                    item.classList.remove('open');
+                });
+            }
+        });
+
+        // ===== GSAP ANIMATIONS =====
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Fade in animations on scroll
+        gsap.utils.toArray('.scroll-fade-in').forEach((element) => {
+            gsap.to(element, {
+                scrollTrigger: {
+                    trigger: element,
+                    start: 'top 80%',
+                    end: 'top 50%',
+                    scrub: false,
+                    markers: false
+                },
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                ease: 'power2.out'
+            });
+        });
+
+        // Parallax effect on hero background
+        gsap.to('.hero', {
+            scrollTrigger: {
+                trigger: '.hero',
+                start: 'top top',
+                end: 'bottom top',
+                scrub: 1,
+                markers: false
+            },
+            backgroundPosition: '50% 100%',
+            duration: 1
+        });
+
+        // Stats counter animation - counts up from 0
+        document.querySelectorAll('.stat-item h3').forEach((el) => {
+            const text = el.innerText;
+            const num = parseInt(text.replace(/[^0-9]/g, ''));
+            const suffix = text.replace(/[0-9]/g, '');
+            el.innerText = '0' + suffix;
+
+            ScrollTrigger.create({
+                trigger: el,
+                start: 'top 80%',
+                onEnter: () => {
+                    gsap.to({ val: 0 }, {
+                        val: num,
+                        duration: 2,
+                        ease: 'power2.out',
+                        snap: { val: 1 },
+                        onUpdate: function() {
+                            el.innerText = Math.round(this.targets()[0].val) + suffix;
+                        }
+                    });
+                },
+                once: true
+            });
+        });
+    </script>
+</body>
+</html>
