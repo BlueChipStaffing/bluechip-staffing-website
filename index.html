@@ -302,6 +302,15 @@
                 flex: 1;
                 text-align: center;
             }
+
+            .nav-actions {
+                display: none;
+                order: 3;
+            }
+
+            .nav-menu.active ~ .nav-actions {
+                display: flex;
+            }
         }
 
         /* ===== HERO SECTION ===== */
@@ -528,19 +537,35 @@
             color: var(--cyan);
         }
 
+        .specialties-expanded {
+            display: none;
+            overflow: hidden;
+        }
+
+        .specialties-expanded.active {
+            display: block;
+        }
+
+        .btn-show-more {
+            background: transparent;
+            color: var(--blue);
+            border: 2px solid var(--blue);
+            padding: 12px 32px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-show-more:hover {
+            background: var(--blue);
+            color: var(--white);
+        }
+
         @media (max-width: 768px) {
             .specialties-grid {
                 grid-template-columns: repeat(2, 1fr);
-            }
-
-            .specialties-grid-bottom {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .specialties-grid-bottom .specialty-card {
-                flex: 0 0 auto;
-                width: 100%;
             }
         }
 
@@ -786,6 +811,13 @@
                         <a href="specialties/vc-pe.html" class="dropdown-item">Venture Capital / PE</a>
                         <a href="specialties/life-sciences.html" class="dropdown-item">Life Sciences</a>
                         <a href="specialties/quality-control.html" class="dropdown-item">Quality Control & QA</a>
+                        <a href="specialties/accounting-finance.html" class="dropdown-item">Accounting & Finance</a>
+                        <a href="specialties/administrative-clerical.html" class="dropdown-item">Administrative & Clerical</a>
+                        <a href="specialties/customer-service.html" class="dropdown-item">Customer Service</a>
+                        <a href="specialties/engineering-technical.html" class="dropdown-item">Engineering & Technical</a>
+                        <a href="specialties/healthcare.html" class="dropdown-item">Healthcare</a>
+                        <a href="specialties/information-technology.html" class="dropdown-item">Information Technology</a>
+                        <a href="specialties/logistics-supply-chain.html" class="dropdown-item">Logistics & Supply Chain</a>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -841,7 +873,7 @@
 
     <!-- SPECIALTIES SECTION -->
     <section class="specialties">
-        <h2 class="section-title">Expertise Across 7 Key Industries</h2>
+        <h2 class="section-title">Industries We Serve</h2>
         <div class="specialties-grid">
             <div class="specialty-card scroll-fade-in" style="background-image: url('images/photos/corporate-professional.jpg');">
                 <a href="specialties/corporate.html">Corporate & Professional</a>
@@ -855,8 +887,6 @@
             <div class="specialty-card scroll-fade-in" style="background-image: url('images/photos/ai-staffing.jpg');">
                 <a href="specialties/ai.html">Artificial Intelligence</a>
             </div>
-        </div>
-        <div class="specialties-grid-bottom">
             <div class="specialty-card scroll-fade-in" style="background-image: url('images/photos/vc-growth.jpg');">
                 <a href="specialties/vc-pe.html">Venture Capital / PE</a>
             </div>
@@ -866,12 +896,42 @@
             <div class="specialty-card scroll-fade-in" style="background-image: url('images/photos/quality-control.jpg');">
                 <a href="specialties/quality-control.html">Quality Control & QA</a>
             </div>
+            <div class="specialty-card scroll-fade-in" style="background-image: linear-gradient(135deg, #1e3a5f 0%, #2a4d78 100%);">
+                <a href="specialties/accounting-finance.html">Accounting & Finance</a>
+            </div>
+        </div>
+        <div class="specialties-expanded" id="specialties-expanded">
+            <div class="specialties-grid" style="margin-top: 20px;">
+                <div class="specialty-card scroll-fade-in" style="background-image: linear-gradient(135deg, #1e3a5f 0%, #2a4d78 100%);">
+                    <a href="specialties/administrative-clerical.html">Administrative & Clerical</a>
+                </div>
+                <div class="specialty-card scroll-fade-in" style="background-image: linear-gradient(135deg, #1e3a5f 0%, #2a4d78 100%);">
+                    <a href="specialties/customer-service.html">Customer Service</a>
+                </div>
+                <div class="specialty-card scroll-fade-in" style="background-image: linear-gradient(135deg, #1e3a5f 0%, #2a4d78 100%);">
+                    <a href="specialties/engineering-technical.html">Engineering & Technical</a>
+                </div>
+                <div class="specialty-card scroll-fade-in" style="background-image: linear-gradient(135deg, #1e3a5f 0%, #2a4d78 100%);">
+                    <a href="specialties/healthcare.html">Healthcare</a>
+                </div>
+                <div class="specialty-card scroll-fade-in" style="background-image: linear-gradient(135deg, #1e3a5f 0%, #2a4d78 100%);">
+                    <a href="specialties/information-technology.html">Information Technology</a>
+                </div>
+                <div class="specialty-card scroll-fade-in" style="background-image: linear-gradient(135deg, #1e3a5f 0%, #2a4d78 100%);">
+                    <a href="specialties/logistics-supply-chain.html">Logistics & Supply Chain</a>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 30px;">
+            <button class="btn-show-more" id="btn-show-industries" onclick="toggleIndustries()">
+                Show More Industries
+            </button>
         </div>
     </section>
 
     <!-- STAFFING SOLUTIONS -->
     <section class="solutions">
-        <h2>6 Staffing Solutions</h2>
+        <h2>Staffing Solutions</h2>
         <div class="solutions-grid">
             <div class="solution-card scroll-fade-in">
                 <h3>Contract Staffing</h3>
@@ -990,6 +1050,24 @@
     </footer>
 
     <script>
+        // ===== SHOW MORE INDUSTRIES TOGGLE =====
+        function toggleIndustries() {
+            const expanded = document.getElementById('specialties-expanded');
+            const btn = document.getElementById('btn-show-industries');
+            expanded.classList.toggle('active');
+            if (expanded.classList.contains('active')) {
+                btn.textContent = 'Show Fewer Industries';
+                // Trigger scroll animations for newly visible cards
+                expanded.querySelectorAll('.scroll-fade-in').forEach(el => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                });
+            } else {
+                btn.textContent = 'Show More Industries';
+            }
+        }
+
         // ===== MOBILE MENU TOGGLE =====
         const hamburger = document.querySelector('.hamburger');
         const navMenu = document.querySelector('.nav-menu');
