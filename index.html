@@ -546,6 +546,17 @@
             display: block;
         }
 
+        .specialties-expanded .specialties-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .specialties-expanded .specialty-card {
+            flex: 0 0 calc(25% - 15px);
+        }
+
         .btn-show-more {
             background: transparent;
             color: var(--blue);
@@ -566,6 +577,9 @@
         @media (max-width: 768px) {
             .specialties-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+            .specialties-expanded .specialty-card {
+                flex: 0 0 calc(50% - 10px);
             }
         }
 
@@ -998,7 +1012,7 @@
                 <div class="specialty-card scroll-fade-in" style="background-image: url('images/photos/biotech-network.jpg');">
                     <a href="specialties/information-technology.html">Information Technology</a>
                 </div>
-                <div class="specialty-card scroll-fade-in" style="background-image: url('images/photos/global-staffing.jpg');">
+                <div class="specialty-card scroll-fade-in" style="background-image: url('images/photos/global-staffing.jpg'); flex: 0 0 calc(50% - 10px);">
                     <a href="specialties/logistics-supply-chain.html">Logistics & Supply Chain</a>
                 </div>
             </div>
