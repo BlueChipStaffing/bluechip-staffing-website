@@ -645,6 +645,75 @@
             opacity: 0.9;
         }
 
+        /* ===== WHY BLUE CHIP ===== */
+        .why-section {
+            padding: 100px 20px;
+            background: var(--gray-50);
+        }
+
+        .why-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .why-container > h2 {
+            text-align: center;
+            font-size: clamp(1.75rem, 3vw, 2.25rem);
+            color: var(--navy);
+            margin-bottom: 60px;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .why-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 40px 32px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .why-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+
+        .why-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+
+        .why-icon svg {
+            width: 28px;
+            height: 28px;
+            fill: none;
+            stroke: var(--white);
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .why-card h3 {
+            font-size: 1.25rem;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        .why-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
         /* ===== CTA SPLIT ===== */
         .cta-split {
             max-width: 1400px;
@@ -994,6 +1063,43 @@
         </div>
     </section>
 
+    <!-- WHY BLUE CHIP -->
+    <section class="why-section">
+        <div class="why-container">
+            <h2>Why Blue Chip?</h2>
+            <div class="why-grid">
+                <div class="why-card scroll-fade-in">
+                    <div class="why-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <h3>Uncompromising Quality</h3>
+                    <p>Quality over quantity — every time. We thoroughly vet each candidate to ensure they're not just qualified, but the right cultural fit. Higher quality placements lead to top performers who stay long-term and make a real impact on your bottom line.</p>
+                </div>
+                <div class="why-card scroll-fade-in">
+                    <div class="why-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    </div>
+                    <h3>Competitive Pricing</h3>
+                    <p>We understand how expensive agency fees can be. Blue Chip offers some of the most competitive rates in the industry — without sacrificing quality. We work within your budget to deliver exceptional talent at a fair price.</p>
+                </div>
+                <div class="why-card scroll-fade-in">
+                    <div class="why-icon">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <h3>Speed to Hire</h3>
+                    <p>In today's market, the fastest-moving companies land the best talent. Our streamlined hiring process and deep candidate network mean you get qualified professionals placed quickly — before your competitors do.</p>
+                </div>
+                <div class="why-card scroll-fade-in">
+                    <div class="why-icon">
+                        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3>Ethics & Diversity</h3>
+                    <p>We believe diverse teams drive better results. Blue Chip is committed to ethical recruitment practices and fostering diversity and inclusion in every placement — because when employees feel valued, businesses thrive.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA SPLIT -->
     <section class="cta-split">
         <div class="cta-grid">
@@ -1049,9 +1155,14 @@
             <div class="footer-section">
                 <h4>Contact Info</h4>
                 <ul>
-                    <li><a href="mailto:info@bluechipstaffing.com">info@bluechipstaffing.com</a></li>
-                    <li><a href="tel:+18005551234">1-800-555-1234</a></li>
+                    <li><a href="mailto:Recruitment@bluechipstaff.com">Recruitment@bluechipstaff.com</a></li>
+                    <li><a href="tel:+18003090707">1-800-309-0707</a></li>
                 </ul>
+                <div style="display: flex; gap: 16px; margin-top: 20px;">
+                    <a href="https://www.instagram.com/bluechipstaffingllc/" target="_blank" rel="noopener" style="color: var(--cyan); font-size: 0.9rem;">Instagram</a>
+                    <a href="https://www.facebook.com/bluechipstaffing" target="_blank" rel="noopener" style="color: var(--cyan); font-size: 0.9rem;">Facebook</a>
+                    <a href="https://www.linkedin.com/company/bluechipstaffing/" target="_blank" rel="noopener" style="color: var(--cyan); font-size: 0.9rem;">LinkedIn</a>
+                </div>
             </div>
         </div>
 
