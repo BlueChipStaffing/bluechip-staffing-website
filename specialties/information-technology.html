@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Information Technology Staffing | Blue Chip Staffing</title>
+    <meta name="description" content="Connecting organizations with skilled IT professionals — from help desk support to enterprise architects and CTOs.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- GSAP from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #1e3a5f;
+            --navy-light: #2a4d78;
+            --blue: #3b82f6;
+            --blue-hover: #2563eb;
+            --cyan: #38bdf8;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --border-light: #e5e7eb;
+            --white: #ffffff;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        button {
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        /* ===== HEADER & NAVIGATION ===== */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--white);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100px;
+        }
+
+        .logo {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 120px;
+            width: auto;
+        }
+
+        .logo a {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2px;
+            align-items: center;
+            flex: 1;
+            margin-left: 40px;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            color: var(--text-dark);
+            font-weight: 500;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background-color: var(--gray-100);
+        }
+
+        .nav-link.active {
+            color: var(--blue);
+            font-weight: 600;
+            border-bottom: 3px solid var(--blue);
+            border-radius: 0;
+        }
+
+        .nav-link.active {
+            color: var(--blue);
+            background-color: var(--gray-100);
+        }
+
+        .dropdown-toggle::after {
+            content: '▼';
+            font-size: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-item.open .dropdown-toggle::after {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            text-align: left;
+            left: 0;
+            background: var(--white);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            min-width: 220px;
+            margin-top: 8px;
+            overflow: hidden;
+        }
+
+        .nav-item.open .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 12px 16px;
+            color: var(--text-dark);
+            font-weight: 500;
+            border-bottom: 1px solid var(--border-light);
+            transition: background-color 0.2s ease;
+        }
+
+        .dropdown-item:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-item:hover {
+            background-color: var(--gray-50);
+            color: var(--blue);
+        }
+
+        .dropdown-item.active {
+            background-color: var(--blue);
+            color: var(--white);
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            margin-left: auto;
+        }
+
+        .btn-primary {
+            background: var(--blue);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: var(--blue-hover);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2.5px;
+            background: var(--text-dark);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(10px, 10px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
+        }
+
+        /* ===== RESPONSIVE NAV ===== */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            nav {
+                flex-wrap: wrap;
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100px;
+                left: 0;
+                right: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                gap: 0;
+                margin: 0;
+                border-bottom: 1px solid var(--border-light);
+                max-height: calc(100vh - 100px);
+                overflow-y: auto;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-item {
+                width: 100%;
+                border-bottom: 1px solid var(--border-light);
+            }
+
+            .nav-link {
+                padding: 16px 20px;
+                border-radius: 0;
+            }
+
+            .dropdown-menu {
+                position: static;
+                display: none;
+                border: none;
+                box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.05);
+                background: var(--gray-50);
+            }
+
+            .nav-item.open .dropdown-menu {
+                display: block;
+            }
+
+            .dropdown-item {
+                padding: 12px 40px;
+            }
+
+            .nav-actions {
+                width: 100%;
+                justify-content: center;
+                gap: 8px;
+                margin-top: 16px;
+                padding: 16px 20px;
+                border-top: 1px solid var(--border-light);
+                margin-left: 0;
+            }
+
+            .btn-primary {
+                flex: 1;
+                text-align: center;
+            }
+
+            .nav-actions {
+                display: none;
+                order: 3;
+            }
+
+            .nav-menu.active ~ .nav-actions {
+                display: flex;
+            }
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            min-height: 600px;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            background-image: linear-gradient(135deg, rgba(30, 58, 95, 0.85) 0%, rgba(42, 77, 120, 0.85) 100%), url('../images/photos/biotech-network.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: var(--white);
+            max-width: 800px;
+            padding: 40px 20px;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 20px;
+            line-height: 1.2;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            margin-bottom: 40px;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-white {
+            background: var(--white);
+            color: var(--navy);
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .btn-white:hover {
+            background: var(--gray-50);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ===== OVERVIEW SECTION ===== */
+        .overview {
+            max-width: 1400px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .overview-text {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* ===== INDUSTRIES SECTION ===== */
+        .industries {
+            max-width: 1400px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--navy);
+        }
+
+        .industries-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .industry-tag {
+            background: linear-gradient(135deg, var(--blue) 0%, var(--blue-hover) 100%);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 24px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+        }
+
+        .industry-tag:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.35);
+        }
+
+        /* ===== ROLES SECTION ===== */
+        .roles {
+            max-width: 1400px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .roles h2 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--navy);
+        }
+
+        .roles-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px;
+        }
+
+        .role-item {
+            flex: 0 0 calc(33.333% - 16px);
+            background: var(--white);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .role-item:hover {
+            transform: translateY(-6px);
+            border-color: var(--blue);
+            box-shadow: 0 12px 24px rgba(59, 130, 246, 0.15);
+        }
+
+        @media (max-width: 1024px) {
+            .role-item {
+                flex: 0 0 calc(50% - 12px);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .role-item {
+                flex: 0 0 100%;
+            }
+        }
+
+        /* ===== SECONDARY IMAGE SECTION ===== */
+        .secondary-image {
+            max-width: 1400px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .secondary-image-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .secondary-image-img {
+            width: 100%;
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .secondary-image-text h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--navy);
+        }
+
+        .secondary-image-text p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .secondary-image-content {
+                grid-template-columns: 1fr;
+            }
+
+            .secondary-image-img {
+                height: 300px;
+            }
+
+            .secondary-image-text h3 {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* ===== STAFFING SOLUTIONS ===== */
+        .solutions {
+            max-width: 1400px;
+            margin: 100px auto;
+            padding: 0 20px;
+        }
+
+        .solutions h2 {
+            text-align: center;
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            color: var(--navy);
+            margin-bottom: 60px;
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .solution-card {
+            background: var(--white);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .solution-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+            border-color: var(--blue);
+        }
+
+        .solution-card h3 {
+            font-size: 1.25rem;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        .solution-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta {
+            max-width: 1400px;
+            margin: 100px auto;
+            padding: 0 20px;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, var(--blue) 0%, var(--blue-hover) 100%);
+            color: var(--white);
+            padding: 60px 40px;
+            border-radius: 12px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 12px 30px rgba(59, 130, 246, 0.25);
+        }
+
+        .cta-box h2 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: 24px;
+        }
+
+        .cta-box p {
+            font-size: 1.05rem;
+            margin-bottom: 24px;
+            opacity: 0.95;
+        }
+
+        @media (max-width: 768px) {
+            .cta-box {
+                padding: 40px 20px;
+            }
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--navy);
+            color: var(--white);
+            padding: 60px 20px 20px;
+            margin-top: 100px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-section h4 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: var(--cyan);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--cyan);
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .footer-logo img {
+            height: 140px;
+            width: auto;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 30px;
+            text-align: center;
+        }
+
+        .footer-tagline {
+            font-size: 0.95rem;
+            opacity: 0.85;
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        .footer-copyright {
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        /* ===== SCROLL ANIMATIONS ===== */
+        .scroll-fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        /* ===== UTILITIES ===== */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER & NAVIGATION -->
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../images/logo/logo-standard.svg" alt="Blue Chip Staffing">
+                </a>
+            </div>
+
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="../about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../employers.html" class="nav-link">Employers</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../careers.html" class="nav-link">Career Seekers</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link dropdown-toggle active">Specialties</a>
+                    <div class="dropdown-menu">
+                        <a href="corporate.html" class="dropdown-item">Corporate & Professional</a>
+                        <a href="construction.html" class="dropdown-item">Construction</a>
+                        <a href="hospitality.html" class="dropdown-item">Hospitality</a>
+                        <a href="ai.html" class="dropdown-item">Artificial Intelligence</a>
+                        <a href="vc-pe.html" class="dropdown-item">Venture Capital / PE</a>
+                        <a href="life-sciences.html" class="dropdown-item">Life Sciences</a>
+                        <a href="quality-control.html" class="dropdown-item">Quality Control & QA</a>
+                        <a href="accounting-finance.html" class="dropdown-item">Accounting & Finance</a>
+                        <a href="administrative-clerical.html" class="dropdown-item">Administrative & Clerical</a>
+                        <a href="customer-service.html" class="dropdown-item">Customer Service</a>
+                        <a href="engineering-technical.html" class="dropdown-item">Engineering & Technical</a>
+                        <a href="healthcare.html" class="dropdown-item">Healthcare</a>
+                        <a href="information-technology.html" class="dropdown-item active">Information Technology</a>
+                        <a href="logistics-supply-chain.html" class="dropdown-item">Logistics & Supply Chain</a>
+                        <a href="legal-law-firms.html" class="dropdown-item">Legal & Law Firms</a>
+                        <a href="manufacturing.html" class="dropdown-item">Manufacturing</a>
+                        <a href="nonprofit.html" class="dropdown-item">Nonprofit</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="../resources.html" class="nav-link">Resources</a>
+                </li>
+                </li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="../contact.html" class="btn-primary">Contact Us</a>
+            </div>
+
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Information Technology Staffing</h1>
+            <p>Connecting organizations with skilled IT professionals — from help desk support to enterprise architects and CTOs</p>
+            <div class="hero-buttons">
+                <a href="../employers.html" class="btn-white">For Employers</a>
+                <a href="../careers.html" class="btn-white">For Job Seekers</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- OVERVIEW SECTION -->
+    <section class="overview scroll-fade-in">
+        <p class="overview-text">Blue Chip Staffing delivers IT talent across infrastructure, development, security, data, and leadership roles. We help organizations build and scale technology teams that drive innovation.</p>
+    </section>
+
+    <!-- INDUSTRIES SECTION -->
+    <section class="industries">
+        <h2 class="section-title">Industries We Support</h2>
+        <div class="industries-tags scroll-fade-in">
+            <span class="industry-tag">SaaS & Software Companies</span>
+            <span class="industry-tag">Financial Services</span>
+            <span class="industry-tag">Healthcare IT</span>
+            <span class="industry-tag">E-Commerce</span>
+            <span class="industry-tag">Cybersecurity</span>
+            <span class="industry-tag">Cloud Services</span>
+            <span class="industry-tag">Consulting Firms</span>
+            <span class="industry-tag">Government IT</span>
+            <span class="industry-tag">Telecommunications</span>
+            <span class="industry-tag">Media & Entertainment</span>
+            <span class="industry-tag">Education Technology</span>
+            <span class="industry-tag">Startups</span>
+        </div>
+    </section>
+
+    <!-- ROLES SECTION -->
+    <section class="roles">
+        <h2>Roles We Recruit</h2>
+        <div class="roles-grid">
+            <div class="role-item scroll-fade-in">Help Desk Technician</div>
+            <div class="role-item scroll-fade-in">Desktop Support Specialist</div>
+            <div class="role-item scroll-fade-in">Systems Administrator</div>
+            <div class="role-item scroll-fade-in">Network Administrator</div>
+            <div class="role-item scroll-fade-in">Network Engineer</div>
+            <div class="role-item scroll-fade-in">Cloud Engineer</div>
+            <div class="role-item scroll-fade-in">DevOps Engineer</div>
+            <div class="role-item scroll-fade-in">Site Reliability Engineer</div>
+            <div class="role-item scroll-fade-in">Software Developer</div>
+            <div class="role-item scroll-fade-in">Senior Software Engineer</div>
+            <div class="role-item scroll-fade-in">Full Stack Developer</div>
+            <div class="role-item scroll-fade-in">Front-End Developer</div>
+            <div class="role-item scroll-fade-in">Back-End Developer</div>
+            <div class="role-item scroll-fade-in">Mobile Developer</div>
+            <div class="role-item scroll-fade-in">QA Analyst</div>
+            <div class="role-item scroll-fade-in">QA Engineer</div>
+            <div class="role-item scroll-fade-in">Database Administrator</div>
+            <div class="role-item scroll-fade-in">Data Engineer</div>
+            <div class="role-item scroll-fade-in">Data Analyst</div>
+            <div class="role-item scroll-fade-in">Data Scientist</div>
+            <div class="role-item scroll-fade-in">Business Intelligence Analyst</div>
+            <div class="role-item scroll-fade-in">Cybersecurity Analyst</div>
+            <div class="role-item scroll-fade-in">Security Engineer</div>
+            <div class="role-item scroll-fade-in">IT Project Manager</div>
+            <div class="role-item scroll-fade-in">Scrum Master</div>
+            <div class="role-item scroll-fade-in">Solutions Architect</div>
+            <div class="role-item scroll-fade-in">Enterprise Architect</div>
+            <div class="role-item scroll-fade-in">IT Director</div>
+            <div class="role-item scroll-fade-in">CTO</div>
+            <div class="role-item scroll-fade-in">CISO</div>
+        </div>
+    </section>
+
+    <!-- SECONDARY IMAGE SECTION -->
+    <section class="secondary-image scroll-fade-in">
+        <div class="secondary-image-content">
+            <div class="secondary-image-img" style="background-image: url('../images/photos/ai-data.jpg');"></div>
+            <div class="secondary-image-text">
+                <h3>Technology Talent That Scales With You</h3>
+                <p>The IT landscape evolves rapidly, and so do hiring needs. Our technology recruiters stay current on frameworks, languages, certifications, and market rates to ensure you get qualified candidates who can contribute from day one.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- STAFFING SOLUTIONS -->
+    <section class="solutions">
+        <h2>Our Staffing Solutions</h2>
+        <div class="solutions-grid">
+            <div class="solution-card scroll-fade-in">
+                <h3>Contract Staffing</h3>
+                <p>Flexible staffing solutions for short-term projects and seasonal demands. Scale your workforce as needed.</p>
+            </div>
+            <div class="solution-card scroll-fade-in">
+                <h3>Contract to Hire</h3>
+                <p>Evaluate talent before making long-term commitments. Trial period leads to permanent placement when right fit is found.</p>
+            </div>
+            <div class="solution-card scroll-fade-in">
+                <h3>Managed Services</h3>
+                <p>Complete staffing department outsourcing. We manage recruitment, payroll, and compliance for your team.</p>
+            </div>
+            <div class="solution-card scroll-fade-in">
+                <h3>Payrolling Services</h3>
+                <p>Streamline operations with our payroll management. We handle taxes, benefits, and compliance reporting.</p>
+            </div>
+            <div class="solution-card scroll-fade-in">
+                <h3>Direct Hire Placement</h3>
+                <p>Permanent placements for key roles. Comprehensive recruitment process to find your next team member.</p>
+            </div>
+            <div class="solution-card scroll-fade-in">
+                <h3>Executive Search</h3>
+                <p>Specialized recruitment for C-suite and senior leadership positions. Industry expertise and extensive networks.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta scroll-fade-in">
+        <div class="cta-box">
+            <h2>Ready to Scale Your Technology Team?</h2>
+            <p>Connect with Blue Chip Staffing to find IT professionals who will drive innovation and support your technical infrastructure and strategic objectives.</p>
+            <a href="../contact.html" class="btn-white">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="../images/logo/logo-inverse.svg" alt="Blue Chip Staffing">
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="../about.html">About Us</a></li>
+                    <li><a href="../resources.html">Resources</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>For Employers</h4>
+                <ul>
+                    <li><a href="../employers.html">Hire Talent</a></li>
+                    <li><a href="../employers.html#solutions">Our Solutions</a></li>
+                    <li><a href="../employers.html#how-it-works">How It Works</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>For Job Seekers</h4>
+                <ul>
+                    <li><a href="../careers.html">Browse Jobs</a></li>
+                    <li><a href="../submit-resume.html">Submit Resume</a></li>
+                    <li><a href="../contact.html">Get in Touch</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <ul>
+                    <li><a href="mailto:info@bluechipstaffing.com">info@bluechipstaffing.com</a></li>
+                    <li><a href="tel:+18005551234">1-800-555-1234</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="footer-tagline">Providing companies with the highest quality talent at the most reasonable rates. Family-owned, nationally trusted.</p>
+            <p class="footer-copyright">&copy; 2025 Blue Chip Staffing LLC. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // ===== MOBILE MENU TOGGLE =====
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when nav link is clicked
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (!link.classList.contains('dropdown-toggle')) {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                }
+            });
+        });
+
+        // ===== DROPDOWN TOGGLE =====
+        document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+            toggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                const parentItem = toggle.closest('.nav-item');
+                parentItem.classList.toggle('open');
+
+                // Close other dropdowns
+                document.querySelectorAll('.nav-item.open').forEach(item => {
+                    if (item !== parentItem) {
+                        item.classList.remove('open');
+                    }
+                });
+            });
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.nav-item')) {
+                document.querySelectorAll('.nav-item.open').forEach(item => {
+                    item.classList.remove('open');
+                });
+            }
+        });
+
+        // ===== GSAP ANIMATIONS =====
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Fade in animations on scroll
+        gsap.utils.toArray('.scroll-fade-in').forEach((element) => {
+            gsap.to(element, {
+                scrollTrigger: {
+                    trigger: element,
+                    start: 'top 80%',
+                    end: 'top 50%',
+                    scrub: false,
+                    markers: false
+                },
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                ease: 'power2.out'
+            });
+        });
+
+        // Parallax effect on hero background
+        gsap.to('.hero', {
+            scrollTrigger: {
+                trigger: '.hero',
+                start: 'top top',
+                end: 'bottom top',
+                scrub: 1,
+                markers: false
+            },
+            backgroundPosition: '50% 100%',
+            duration: 1
+        });
+    </script>
+</body>
+</html>
