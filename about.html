@@ -398,6 +398,12 @@
             border-radius: 12px;
         }
 
+        .story-image:last-child {
+            grid-column: 1 / -1;
+            max-width: 50%;
+            justify-self: center;
+        }
+
         .story-image:hover {
             transform: translateY(-8px);
         }
@@ -410,6 +416,9 @@
 
             .story-images {
                 grid-template-columns: 1fr;
+            }
+            .story-image:last-child {
+                max-width: 100%;
             }
 
             .story-image img {
