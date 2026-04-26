@@ -529,10 +529,8 @@
             background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
             color: var(--white);
             padding: 60px 20px;
-            margin: 80px 0;
+            margin: 80px 20px;
             border-radius: 12px;
-            margin-left: 20px;
-            margin-right: 20px;
         }
 
         .newsletter-container {
@@ -584,6 +582,16 @@
         }
 
         @media (max-width: 768px) {
+            .articles-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .newsletter {
+                margin: 60px 10px;
+                padding: 40px 16px;
+            }
+
             .newsletter-form {
                 flex-direction: column;
             }
@@ -777,6 +785,13 @@
             margin: 0 auto;
             padding: 0 20px;
         }
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -885,26 +900,56 @@
         <div class="articles-grid">
             <!-- Article 1 -->
             <div class="article-card scroll-fade-in">
+                <div class="article-content">
+                    <span class="article-tag">Hiring Tips</span>
+                    <h3>5 Signs It's Time to Partner with a Staffing Agency</h3>
+                    <p>If your team is stretched thin and open roles are sitting unfilled, it may be time to bring in a staffing partner. Here's how to know when the time is right.</p>
+                </div>
             </div>
 
             <!-- Article 2 -->
             <div class="article-card scroll-fade-in">
+                <div class="article-content">
+                    <span class="article-tag">Industry Trends</span>
+                    <h3>The State of Staffing: What Employers Need to Know</h3>
+                    <p>From AI-driven recruitment to shifting candidate expectations, the staffing landscape is evolving fast. Stay ahead of the curve with these key trends.</p>
+                </div>
             </div>
 
             <!-- Article 3 -->
             <div class="article-card scroll-fade-in">
+                <div class="article-content">
+                    <span class="article-tag">Career Advice</span>
+                    <h3>How to Stand Out in a Competitive Job Market</h3>
+                    <p>In today's market, a strong resume isn't enough. Learn what top employers are really looking for and how to position yourself for success.</p>
+                </div>
             </div>
 
             <!-- Article 4 -->
             <div class="article-card scroll-fade-in">
+                <div class="article-content">
+                    <span class="article-tag">Workforce Planning</span>
+                    <h3>Contract vs. Direct Hire: Choosing the Right Staffing Model</h3>
+                    <p>Each hiring model has distinct advantages. Understanding when to use contract staffing versus direct placement can save your organization time and money.</p>
+                </div>
             </div>
 
             <!-- Article 5 -->
             <div class="article-card scroll-fade-in">
+                <div class="article-content">
+                    <span class="article-tag">Compliance</span>
+                    <h3>Navigating Employment Regulations Across State Lines</h3>
+                    <p>Multi-state hiring introduces complex compliance requirements. Here's a guide to staying compliant while scaling your workforce nationally.</p>
+                </div>
             </div>
 
             <!-- Article 6 -->
             <div class="article-card scroll-fade-in">
+                <div class="article-content">
+                    <span class="article-tag">Retention</span>
+                    <h3>Reducing Turnover: Strategies That Actually Work</h3>
+                    <p>High turnover costs more than you think. Discover proven strategies for improving employee retention and building a stable, engaged workforce.</p>
+                </div>
             </div>
         </div>
     </section>
