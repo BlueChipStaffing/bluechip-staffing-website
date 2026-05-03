@@ -289,27 +289,14 @@
             }
 
             .nav-actions {
-                width: 100%;
-                justify-content: center;
-                gap: 8px;
-                margin-top: 16px;
-                padding: 16px 20px;
-                border-top: 1px solid var(--border-light);
-                margin-left: 0;
+                display: flex;
+                margin-left: auto;
+                margin-right: 12px;
             }
 
             .btn-primary {
-                flex: 1;
-                text-align: center;
-            }
-
-            .nav-actions {
-                display: none;
-                order: 3;
-            }
-
-            .nav-menu.active ~ .nav-actions {
-                display: flex;
+                padding: 8px 16px;
+                font-size: 0.85rem;
             }
         }
 
@@ -410,7 +397,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.35));
             z-index: 1;
         }
 
@@ -512,13 +499,13 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2));
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4));
             transition: background 0.3s ease;
             z-index: 1;
         }
 
         .specialty-card:hover::before {
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3));
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.5));
         }
 
         .specialty-card a {
@@ -629,6 +616,25 @@
             color: var(--text-light);
             font-size: 0.95rem;
             line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .solutions {
+                margin: 60px auto;
+            }
+
+            .solutions h2 {
+                margin-bottom: 30px;
+            }
+
+            .solutions-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .solution-card {
+                padding: 30px 20px;
+            }
         }
 
         /* ===== STATS BAR ===== */
@@ -862,6 +868,18 @@
         .footer-copyright {
             font-size: 0.85rem;
             opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
         }
 
         /* ===== SCROLL ANIMATIONS ===== */

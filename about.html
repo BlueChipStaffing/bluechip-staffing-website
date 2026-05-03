@@ -289,27 +289,14 @@
             }
 
             .nav-actions {
-                width: 100%;
-                justify-content: center;
-                gap: 8px;
-                margin-top: 16px;
-                padding: 16px 20px;
-                border-top: 1px solid var(--border-light);
-                margin-left: 0;
+                display: flex;
+                margin-left: auto;
+                margin-right: 12px;
             }
 
             .btn-primary {
-                flex: 1;
-                text-align: center;
-            }
-
-            .nav-actions {
-                display: none;
-                order: 3;
-            }
-
-            .nav-menu.active ~ .nav-actions {
-                display: flex;
+                padding: 8px 16px;
+                font-size: 0.85rem;
             }
         }
 
@@ -447,13 +434,13 @@
 
         .values-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
         }
 
         .value-card {
             background: var(--white);
-            padding: 40px 30px;
+            padding: 32px 20px;
             border-radius: 12px;
             text-align: center;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
@@ -481,6 +468,18 @@
             color: var(--text-light);
             font-size: 0.95rem;
             line-height: 1.6;
+        }
+
+        @media (max-width: 1024px) {
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* ===== DIVERSITY SECTION ===== */
@@ -511,15 +510,14 @@
         }
 
         .diversity-image {
-            border-radius: 16px;
             overflow: hidden;
-            height: 400px;
         }
 
         .diversity-image img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto;
+            display: block;
+            border-radius: 12px;
         }
 
         @media (max-width: 768px) {
@@ -528,7 +526,7 @@
                 gap: 40px;
             }
             .diversity-image {
-                height: 280px;
+                max-width: 100%;
             }
         }
 
@@ -549,9 +547,10 @@
         .leadership-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 40px 30px;
+            gap: 60px 40px;
             max-width: 1100px;
             margin: 0 auto;
+            margin-bottom: 20px;
         }
 
         .leadership-grid-bottom {
@@ -592,7 +591,7 @@
             width: 180px;
             height: 180px;
             border-radius: 50%;
-            margin: 0 auto 24px;
+            margin: 0 auto 28px;
             overflow: hidden;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
             border: 4px solid var(--white);
@@ -602,14 +601,34 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center top;
+            object-position: center 20%;
             display: block;
+        }
+
+        .team-photo.zoom-in img {
+            transform: scale(1.6);
+            object-position: center 35%;
+        }
+
+        .team-photo.placeholder {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .team-photo.placeholder .initials {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: 2px;
         }
 
         .team-card h3 {
             font-size: 1.1rem;
             color: var(--navy);
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            margin-top: 4px;
         }
 
         .team-card p {
@@ -625,7 +644,7 @@
         @media (max-width: 768px) {
             .leadership-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
+                gap: 40px 20px;
             }
 
             .leadership-grid-bottom {
@@ -964,7 +983,7 @@
                 </a>
             </div>
         </div>
-        <div class="leadership-grid-bottom">
+        <div class="leadership-grid">
             <div class="team-card scroll-fade-in">
                 <a href="team/tiffany-drysdale.html">
                     <div class="team-photo"><img src="images/team/tiffany-drysdale.png" alt="Tiffany Drysdale"></div>
@@ -980,12 +999,37 @@
                 </a>
             </div>
             <div class="team-card scroll-fade-in">
+                <a href="team/hailee-ramirez.html">
+                    <div class="team-photo"><img src="images/team/hailee-ramirez.png" alt="Hailee Ramirez"></div>
+                    <h3>Hailee Ramirez</h3>
+                    <p>VP of Staffing — Data Infrastructure & Analytics</p>
+                </a>
+            </div>
+        </div>
+        <div class="leadership-grid">
+            <div class="team-card scroll-fade-in">
+                <a href="team/marisa-laurie.html">
+                    <div class="team-photo placeholder"><span class="initials">ML</span></div>
+                    <h3>Marisa Laurie</h3>
+                    <p>Managing Director — Life Sciences</p>
+                </a>
+            </div>
+            <div class="team-card scroll-fade-in">
                 <a href="team/parker-singha.html">
                     <div class="team-photo"><img src="images/team/parker-singha.jpeg" alt="Parker Singha"></div>
                     <h3>Parker Singha</h3>
                     <p>Technical Recruiter</p>
                 </a>
             </div>
+            <div class="team-card scroll-fade-in">
+                <a href="team/hailey-rawat.html">
+                    <div class="team-photo zoom-in"><img src="images/team/hailey-rawat.jpeg" alt="Hailey Harshita Rawat"></div>
+                    <h3>Hailey Harshita Rawat</h3>
+                    <p>Recruiter</p>
+                </a>
+            </div>
+        </div>
+        <div class="leadership-grid-bottom">
             <div class="team-card scroll-fade-in">
                 <a href="team/alain-alisca.html">
                     <div class="team-photo"><img src="images/team/alain-alisca.png" alt="Alain Darian Alisca"></div>
