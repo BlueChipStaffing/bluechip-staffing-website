@@ -198,6 +198,10 @@ nav {
 
 /* ===== RESPONSIVE NAV ===== */
         @media (max-width: 768px) {
+            .logo img {
+                height: 72px;
+            }
+
             .hamburger {
                 display: flex;
             }
@@ -220,6 +224,7 @@ nav {
                 border-bottom: 1px solid var(--border-light);
                 max-height: calc(100vh - 100px);
                 overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
             }
 
             .nav-menu.active {
@@ -242,6 +247,9 @@ nav {
                 border: none;
                 box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.05);
                 background: var(--gray-50);
+                max-height: 55vh;
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
             }
 
             .nav-item.open .dropdown-menu {
