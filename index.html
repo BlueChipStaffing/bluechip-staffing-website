@@ -59,13 +59,9 @@
             font-family: 'Inter', sans-serif;
             color: var(--text-dark);
             line-height: 1.6;
-            text-align: justify;
         }
 
-        @media (max-width: 768px) {
-            body { text-align: left; }
-        }
-
+        
                                                                                                                                                                                                                                                 /* ===== HERO SECTION ===== */
         .hero {
             min-height: 600px;
@@ -135,7 +131,7 @@
             border-radius: 16px;
             overflow: hidden;
             background-size: cover;
-            background-position: center;
+            background-position: center 22%;
             display: flex;
             align-items: flex-end;
             justify-content: center;
@@ -303,7 +299,7 @@
         }
 
         .specialties-expanded .specialty-card {
-            flex: 0 0 calc(25% - 15px);
+            flex: 1 1 calc(25% - 15px);
         }
 
         .btn-show-more {
@@ -328,7 +324,7 @@
                 grid-template-columns: repeat(2, 1fr);
             }
             .specialties-expanded .specialty-card {
-                flex: 0 0 calc(50% - 10px);
+                flex: 1 1 calc(50% - 10px);
             }
             /* odd card count: let the last card fill the row instead of floating alone */
             .specialties-expanded .specialty-card:last-child:nth-child(odd) {
@@ -715,7 +711,7 @@
             <div class="specialty-card scroll-fade-in" style="background-image: url('images/photos/life-sciences.jpg');">
                 <a href="specialties/healthcare.html">Healthcare</a>
             </div>
-            <div class="specialty-card scroll-fade-in" style="background-image: url('images/photos/diverse-professionals.jpg');">
+            <div class="specialty-card scroll-fade-in" style="background-image: url('images/photos/boardroom-meeting.jpg');">
                 <a href="specialties/corporate.html">Corporate & Professional</a>
             </div>
         </div>

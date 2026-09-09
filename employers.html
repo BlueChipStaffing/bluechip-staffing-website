@@ -59,13 +59,9 @@
             font-family: 'Inter', sans-serif;
             color: var(--text-dark);
             line-height: 1.6;
-            text-align: justify;
         }
 
-        @media (max-width: 768px) {
-            body { text-align: left; }
-        }
-
+        
                                                                                                                                                                                                                                                 /* ===== HERO SECTION ===== */
         .hero {
             min-height: 600px;
@@ -278,8 +274,8 @@
         }
 
         .industries-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            display: flex;
+            flex-wrap: wrap;
             gap: 20px;
             max-width: 1200px;
             margin: 0 auto;
@@ -300,6 +296,7 @@
         }
 
         .industry-card {
+            flex: 1 1 calc(25% - 15px);
             position: relative;
             height: 220px;
             border-radius: 12px;
@@ -350,7 +347,10 @@
 
         @media (max-width: 768px) {
             .industries-grid {
-                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+            .industry-card {
+                flex: 1 1 calc(50% - 8px);
             }
 
             .industries-grid-bottom {
@@ -695,7 +695,7 @@
     <section class="industries">
         <h2>Industry Specialties</h2>
         <div class="industries-grid">
-            <div class="industry-card scroll-fade-in" style="background-image: url('images/photos/diverse-professionals.jpg');">
+            <div class="industry-card scroll-fade-in" style="background-image: url('images/photos/boardroom-meeting.jpg');">
                 <a href="specialties/corporate.html">Corporate & Professional</a>
             </div>
             <div class="industry-card scroll-fade-in" style="background-image: url('images/photos/tech-abstract.jpg');">
