@@ -301,6 +301,10 @@
         .specialties-expanded .specialty-card {
             flex: 1 1 calc(25% - 15px);
         }
+        /* 11 cards = 4-4-3: the wider last-row cards get taller so photos aren't over-cropped */
+        .specialties-expanded .specialty-card:nth-child(n+9) {
+            height: 300px;
+        }
 
         .btn-show-more {
             background: transparent;
@@ -325,6 +329,7 @@
             }
             .specialties-expanded .specialty-card {
                 flex: 1 1 calc(50% - 10px);
+                height: 220px;
             }
             /* odd card count: let the last card fill the row instead of floating alone */
             .specialties-expanded .specialty-card:last-child:nth-child(odd) {
