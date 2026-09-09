@@ -360,16 +360,16 @@ nav {
 /* ===== IMAGE FOCAL POINTS =====
    Photos are cropped by background-size:cover. Faces sit in the upper part of these
    files, so shift the crop window up to keep heads in frame. Applies wherever the file is used. */
-[style*="tech-abstract.jpg"]            { background-position: center 28% !important; }
-[style*="construction-workers.jpg"]     { background-position: center 22% !important; }
-[style*="hospitality-receptionist.jpg"] { background-position: center 18% !important; }
-[style*="team-group.jpg"]               { background-position: center 30% !important; }
-[style*="corporate-handshake.jpg"]      { background-position: center 25% !important; }
-[style*="insurance-family.jpg"]         { background-position: center 15% !important; }
-[style*="community-team.jpg"]           { background-position: center 30% !important; }
-[style*="candidates-waiting.jpg"]       { background-position: center 30% !important; }
-[style*="boardroom-meeting.jpg"]        { background-position: center 35% !important; }
-[style*="corporate-professional.jpg"]   { background-position: center 15% !important; }
+[style*="tech-abstract.jpg"]            { background-position: center top !important; }
+[style*="construction-workers.jpg"]     { background-position: center top !important; }
+[style*="hospitality-receptionist.jpg"] { background-position: center top !important; }
+[style*="team-group.jpg"]               { background-position: center top !important; }
+[style*="corporate-handshake.jpg"]      { background-position: center top !important; }
+[style*="insurance-family.jpg"]         { background-position: center top !important; }
+[style*="community-team.jpg"]           { background-position: center top !important; }
+[style*="candidates-waiting.jpg"]       { background-position: center top !important; }
+[style*="boardroom-meeting.jpg"]        { background-position: center 15% !important; }
+[style*="corporate-professional.jpg"]   { background-position: center top !important; }
 [style*="professional-woman.jpg"]       { background-position: center 40% !important; }
 [style*="vc-growth.jpg"]                { background-position: center 45% !important; }
 [style*="diverse-professionals.jpg"]    { background-position: center 45% !important; }
