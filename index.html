@@ -330,6 +330,10 @@
             .specialties-expanded .specialty-card {
                 flex: 0 0 calc(50% - 10px);
             }
+            /* odd card count: let the last card fill the row instead of floating alone */
+            .specialties-expanded .specialty-card:last-child:nth-child(odd) {
+                flex-basis: 100%;
+            }
         }
 
         /* ===== STAFFING SOLUTIONS ===== */
