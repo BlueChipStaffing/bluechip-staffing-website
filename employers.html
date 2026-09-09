@@ -292,7 +292,7 @@
         }
 
         .industries-grid-bottom .industry-card {
-            flex: 0 0 calc(25% - 15px);
+            flex: 1 1 calc(25% - 15px);
         }
 
         .industry-card {
@@ -354,13 +354,13 @@
             }
 
             .industries-grid-bottom {
-                flex-direction: column;
-                align-items: center;
+                flex-wrap: wrap;
+                gap: 16px;
             }
 
             .industries-grid-bottom .industry-card {
-                flex: 0 0 auto;
-                width: 100%;
+                flex: 1 1 calc(50% - 8px);
+                width: auto;
             }
         }
 
