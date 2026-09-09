@@ -145,8 +145,10 @@
             justify-self: center;
         }
 
-        .story-image:hover {
-            transform: translateY(-8px);
+        @media (hover: hover) {
+            .story-image:hover {
+                transform: translateY(-8px);
+            }
         }
 
         @media (max-width: 768px) {
@@ -202,9 +204,11 @@
             border-top: 4px solid var(--blue);
         }
 
-        .value-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+        @media (hover: hover) {
+            .value-card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+            }
         }
 
         .value-icon {
@@ -327,13 +331,17 @@
             display: block;
         }
 
-        .team-card a:hover .team-photo {
-            border-color: var(--blue);
-            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.25);
+        @media (hover: hover) {
+            .team-card a:hover .team-photo {
+                border-color: var(--blue);
+                box-shadow: 0 8px 24px rgba(59, 130, 246, 0.25);
+            }
         }
 
-        .team-card a:hover h3 {
-            color: var(--blue);
+        @media (hover: hover) {
+            .team-card a:hover h3 {
+                color: var(--blue);
+            }
         }
 
         .team-card {
@@ -391,8 +399,10 @@
             font-weight: 500;
         }
 
-        .team-card:hover {
-            transform: translateY(-8px);
+        @media (hover: hover) {
+            .team-card:hover {
+                transform: translateY(-8px);
+            }
         }
 
         @media (max-width: 768px) {
@@ -490,10 +500,12 @@
             display: inline-block;
         }
 
-        .btn-white:hover {
-            background: var(--gray-50);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        @media (hover: hover) {
+            .btn-white:hover {
+                background: var(--gray-50);
+                transform: translateY(-2px);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            }
         }
 
         @media (max-width: 768px) {
@@ -607,7 +619,7 @@
             <div class="story-images">
                 <div class="story-image scroll-fade-in"><img src="images/photos/team-group.jpg" alt="Blue Chip team"></div>
                 <div class="story-image scroll-fade-in"><img src="images/photos/community-team.jpg" alt="Community engagement"></div>
-                <div class="story-image scroll-fade-in"><img src="images/photos/human-resources.jpg" alt="Human resources expertise"></div>
+                <div class="story-image scroll-fade-in"><img src="images/photos/boardroom-meeting.jpg" alt="Blue Chip team at work"></div>
             </div>
         </div>
     </section>

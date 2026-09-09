@@ -107,10 +107,12 @@
             display: inline-block;
         }
 
-        .btn-white:hover {
-            background: var(--gray-50);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        @media (hover: hover) {
+            .btn-white:hover {
+                background: var(--gray-50);
+                transform: translateY(-2px);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            }
         }
 
         /* ===== BENEFITS SECTION ===== */
@@ -143,10 +145,12 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
         }
 
-        .benefit-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-            border-color: var(--blue);
+        @media (hover: hover) {
+            .benefit-card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+                border-color: var(--blue);
+            }
         }
 
         .benefit-card h3 {
@@ -191,10 +195,12 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
         }
 
-        .solution-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-            border-color: var(--blue);
+        @media (hover: hover) {
+            .solution-card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+                border-color: var(--blue);
+            }
         }
 
         .solution-card h3 {
@@ -310,8 +316,10 @@
             transition: transform 0.3s ease;
         }
 
-        .industry-card:hover {
-            transform: scale(1.05);
+        @media (hover: hover) {
+            .industry-card:hover {
+                transform: scale(1.05);
+            }
         }
 
         .industry-card::before {
@@ -326,8 +334,10 @@
             z-index: 1;
         }
 
-        .industry-card:hover::before {
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3));
+        @media (hover: hover) {
+            .industry-card:hover::before {
+                background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3));
+            }
         }
 
         .industry-card a {
@@ -342,8 +352,10 @@
             transition: color 0.3s ease;
         }
 
-        .industry-card:hover a {
-            color: var(--cyan);
+        @media (hover: hover) {
+            .industry-card:hover a {
+                color: var(--cyan);
+            }
         }
 
         @media (max-width: 768px) {
@@ -393,8 +405,10 @@
             transition: all 0.3s ease;
         }
 
-        .testimonial-card:hover {
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        @media (hover: hover) {
+            .testimonial-card:hover {
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            }
         }
 
         .testimonial-text {
@@ -662,7 +676,7 @@
 
     <!-- IMAGE SECTION 2 -->
     <section class="image-section container reverse scroll-fade-in">
-        <img src="images/photos/project-management.jpg" alt="Project Management">
+        <img src="images/photos/analytics.jpg" alt="Onboarding and support">
         <div class="image-content">
             <h2>Seamless Onboarding & Support</h2>
             <p>From day one, our dedicated team ensures smooth onboarding and continuous support. We handle all the logistics while you focus on your business.</p>

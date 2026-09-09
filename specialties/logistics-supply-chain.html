@@ -115,10 +115,12 @@
             font-size: 1rem;
         }
 
-        .btn-white:hover {
-            background: var(--gray-50);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        @media (hover: hover) {
+            .btn-white:hover {
+                background: var(--gray-50);
+                transform: translateY(-2px);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            }
         }
 
         /* ===== OVERVIEW SECTION ===== */
@@ -169,9 +171,11 @@
             box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
         }
 
-        .industry-tag:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.35);
+        @media (hover: hover) {
+            .industry-tag:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 8px 20px rgba(59, 130, 246, 0.35);
+            }
         }
 
         @media (max-width: 768px) {
@@ -212,10 +216,12 @@
             color: var(--text-dark);
         }
 
-        .role-item:hover {
-            transform: translateY(-6px);
-            border-color: var(--blue);
-            box-shadow: 0 12px 24px rgba(59, 130, 246, 0.15);
+        @media (hover: hover) {
+            .role-item:hover {
+                transform: translateY(-6px);
+                border-color: var(--blue);
+                box-shadow: 0 12px 24px rgba(59, 130, 246, 0.15);
+            }
         }
 
         @media (max-width: 1024px) {
@@ -311,10 +317,12 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
         }
 
-        .solution-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-            border-color: var(--blue);
+        @media (hover: hover) {
+            .solution-card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+                border-color: var(--blue);
+            }
         }
 
         .solution-card h3 {

@@ -106,10 +106,12 @@
             font-size: 1rem;
         }
 
-        .btn-white:hover {
-            background: var(--gray-50);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        @media (hover: hover) {
+            .btn-white:hover {
+                background: var(--gray-50);
+                transform: translateY(-2px);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            }
         }
 
         /* ===== DUAL PATH CARDS ===== */
@@ -140,8 +142,10 @@
             cursor: pointer;
         }
 
-        .dual-card:hover {
-            transform: translateY(-8px);
+        @media (hover: hover) {
+            .dual-card:hover {
+                transform: translateY(-8px);
+            }
         }
 
         .dual-card::before {
@@ -246,8 +250,10 @@
             transition: transform 0.3s ease;
         }
 
-        .specialty-card:hover {
-            transform: scale(1.05);
+        @media (hover: hover) {
+            .specialty-card:hover {
+                transform: scale(1.05);
+            }
         }
 
         .specialty-card::before {
@@ -262,8 +268,10 @@
             z-index: 1;
         }
 
-        .specialty-card:hover::before {
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.5));
+        @media (hover: hover) {
+            .specialty-card:hover::before {
+                background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.5));
+            }
         }
 
         .specialty-card a {
@@ -278,8 +286,10 @@
             transition: color 0.3s ease;
         }
 
-        .specialty-card:hover a {
-            color: var(--cyan);
+        @media (hover: hover) {
+            .specialty-card:hover a {
+                color: var(--cyan);
+            }
         }
 
         .specialties-expanded {
@@ -318,9 +328,11 @@
             transition: all 0.3s ease;
         }
 
-        .btn-show-more:hover {
-            background: var(--blue);
-            color: var(--white);
+        @media (hover: hover) {
+            .btn-show-more:hover {
+                background: var(--blue);
+                color: var(--white);
+            }
         }
 
         @media (max-width: 768px) {
@@ -367,10 +379,12 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
         }
 
-        .solution-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-            border-color: var(--blue);
+        @media (hover: hover) {
+            .solution-card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+                border-color: var(--blue);
+            }
         }
 
         .solution-card h3 {
@@ -464,9 +478,11 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .why-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        @media (hover: hover) {
+            .why-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            }
         }
 
         .why-card h3 {

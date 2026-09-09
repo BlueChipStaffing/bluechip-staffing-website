@@ -118,8 +118,10 @@
             cursor: pointer;
         }
 
-        .resource-category:hover {
-            transform: translateY(-8px);
+        @media (hover: hover) {
+            .resource-category:hover {
+                transform: translateY(-8px);
+            }
         }
 
         .resource-category::before {
@@ -163,9 +165,11 @@
             transition: all 0.3s ease;
         }
 
-        .btn-category:hover {
-            background: var(--cyan);
-            color: var(--white);
+        @media (hover: hover) {
+            .btn-category:hover {
+                background: var(--cyan);
+                color: var(--white);
+            }
         }
 
         /* ===== BLOG/ARTICLES SECTION ===== */
@@ -201,10 +205,12 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
         }
 
-        .article-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-            border-color: var(--blue);
+        @media (hover: hover) {
+            .article-card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+                border-color: var(--blue);
+            }
         }
 
         .article-image {
@@ -260,9 +266,11 @@
             transition: all 0.3s ease;
         }
 
-        .article-link:hover {
-            color: var(--blue-hover);
-            gap: 12px;
+        @media (hover: hover) {
+            .article-link:hover {
+                color: var(--blue-hover);
+                gap: 12px;
+            }
         }
 
         /* ===== NEWSLETTER SECTION ===== */
@@ -317,9 +325,11 @@
             transition: all 0.3s ease;
         }
 
-        .newsletter-form button:hover {
-            background: var(--white);
-            transform: translateY(-2px);
+        @media (hover: hover) {
+            .newsletter-form button:hover {
+                background: var(--white);
+                transform: translateY(-2px);
+            }
         }
 
         @media (max-width: 768px) {
@@ -373,8 +383,10 @@
             transition: all 0.3s ease;
         }
 
-        .faq-question:hover {
-            color: var(--blue);
+        @media (hover: hover) {
+            .faq-question:hover {
+                color: var(--blue);
+            }
         }
 
         .faq-question h3 {
@@ -440,9 +452,11 @@
             transition: all 0.3s ease;
         }
 
-        .btn-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        @media (hover: hover) {
+            .btn-cta:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            }
         }
 
         /* ===== FOOTER ===== */
@@ -551,7 +565,7 @@
             </div>
 
             <!-- Career Advice -->
-            <div class="resource-category scroll-fade-in" style="background-image: url('images/photos/marketing.jpg');">
+            <div class="resource-category scroll-fade-in" style="background-image: url('images/photos/candidates-waiting.jpg');">
                 <div class="resource-category-content">
                     <h3>Career Advice</h3>
                     <p>Advance your career with actionable tips on resume writing, interview preparation, networking, and professional growth strategies.</p>

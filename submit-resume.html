@@ -172,9 +172,11 @@
             background: var(--gray-50);
         }
 
-        .file-upload-wrapper input[type="file"]:hover {
-            border-color: var(--blue);
-            background: var(--white);
+        @media (hover: hover) {
+            .file-upload-wrapper input[type="file"]:hover {
+                border-color: var(--blue);
+                background: var(--white);
+            }
         }
 
         .file-hint {
@@ -195,10 +197,12 @@
             transition: all 0.3s ease;
         }
 
-        .btn-submit:hover {
-            background: var(--blue-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        @media (hover: hover) {
+            .btn-submit:hover {
+                background: var(--blue-hover);
+                transform: translateY(-2px);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            }
         }
 
         @media (max-width: 768px) {
@@ -247,9 +251,11 @@
             scroll-fade-in: true;
         }
 
-        .step-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        @media (hover: hover) {
+            .step-card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            }
         }
 
         .step-number {
@@ -347,10 +353,12 @@
             transition: all 0.3s ease;
         }
 
-        .btn-white:hover {
-            background: var(--gray-50);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        @media (hover: hover) {
+            .btn-white:hover {
+                background: var(--gray-50);
+                transform: translateY(-2px);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            }
         }
 
         @media (max-width: 768px) {

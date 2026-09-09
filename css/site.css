@@ -90,9 +90,11 @@ nav {
             transition: background-color 0.3s ease;
         }
 
-.nav-link:hover {
-            background-color: var(--gray-100);
-        }
+@media (hover: hover) {
+    .nav-link:hover {
+                background-color: var(--gray-100);
+            }
+}
 
 .nav-link.active {
             color: var(--blue);
@@ -145,10 +147,12 @@ nav {
             border-bottom: none;
         }
 
-.dropdown-item:hover {
-            background-color: var(--gray-50);
-            color: var(--blue);
-        }
+@media (hover: hover) {
+    .dropdown-item:hover {
+                background-color: var(--gray-50);
+                color: var(--blue);
+            }
+}
 
 .nav-actions {
             display: flex;
@@ -166,9 +170,11 @@ nav {
             display: inline-block;
         }
 
-.btn-primary:hover {
-            background: var(--blue-hover);
-        }
+@media (hover: hover) {
+    .btn-primary:hover {
+                background: var(--blue-hover);
+            }
+}
 
 .hamburger {
             display: none;
@@ -318,9 +324,11 @@ nav {
             transition: color 0.3s ease;
         }
 
-.footer-section a:hover {
-            color: var(--cyan);
-        }
+@media (hover: hover) {
+    .footer-section a:hover {
+                color: var(--cyan);
+            }
+}
 
 .footer-logo {
             display: flex;
@@ -373,3 +381,16 @@ nav {
 [style*="professional-woman.jpg"]       { background-position: center 40% !important; }
 [style*="vc-growth.jpg"]                { background-position: center 45% !important; }
 [style*="diverse-professionals.jpg"]    { background-position: center 45% !important; }
+
+/* ===== MOBILE RHYTHM =====
+   Desktop section margins (80-100px) stacked up to ~200px of dead space above the footer on phones. */
+@media (max-width: 768px) {
+    .hero { min-height: 420px !important; }
+    .cta, .cta-split, .cta-section, .dual-path, .specialties, .solutions, .secondary-image, .overview,
+    .industries, .roles, .why-section, .stats-bar, .image-section, .testimonials, .how-it-works, .benefits,
+    .bio-section, .values-section, .story-section, .steps-section, .resume-section, .resource-categories,
+    .reach-section, .newsletter, .leadership-section, .faq-section, .diversity-section {
+        margin-top: 48px !important; margin-bottom: 48px !important;
+    }
+    footer { margin-top: 48px !important; }
+}
