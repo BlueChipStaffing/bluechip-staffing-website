@@ -892,24 +892,26 @@
             const text = el.innerText;
             const num = parseInt(text.replace(/[^0-9]/g, ''));
             const suffix = text.replace(/[0-9]/g, '');
+            if (isNaN(num)) return;
             el.innerText = '0' + suffix;
 
-            ScrollTrigger.create({
-                trigger: el,
-                start: 'top 80%',
-                onEnter: () => {
-                    gsap.to({ val: 0 }, {
-                        val: num,
-                        duration: 2,
-                        ease: 'power2.out',
-                        snap: { val: 1 },
-                        onUpdate: function() {
-                            el.innerText = Math.round(this.targets()[0].val) + suffix;
-                        }
-                    });
-                },
-                once: true
-            });
+            let done = false;
+            const finish = () => { if (!done) { done = true; el.innerText = num + suffix; } };
+            const animate = () => {
+                if (done) return;
+                gsap.to({ val: 0 }, {
+                    val: num,
+                    duration: 2,
+                    ease: 'power2.out',
+                    snap: { val: 1 },
+                    onUpdate: function() { if (!done) el.innerText = Math.round(this.targets()[0].val) + suffix; },
+                    onComplete: finish
+                });
+            };
+            ScrollTrigger.create({ trigger: el, start: 'top 80%', onEnter: animate, once: true });
+            // Safety net: never leave a stat reading "0" if the scroll trigger doesn't fire
+            // (background tab, reduced-motion, iOS quirks, slow CDN).
+            setTimeout(finish, 4000);
         });
     </script>
 </body>
