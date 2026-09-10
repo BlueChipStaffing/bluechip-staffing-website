@@ -381,6 +381,9 @@ nav {
 [style*="professional-woman.jpg"]       { background-position: center 40% !important; }
 [style*="vc-growth.jpg"]                { background-position: center 45% !important; }
 [style*="diverse-professionals.jpg"]    { background-position: center 45% !important; }
+[style*="logistics-warehouse.jpg"]      { background-position: center top !important; }
+[style*="logistics-aisle.jpg"]          { background-position: center 40% !important; }
+[style*="engineering-blueprints.jpg"]   { background-position: center 40% !important; }
 
 /* ===== MOBILE RHYTHM =====
    Desktop section margins (80-100px) stacked up to ~200px of dead space above the footer on phones. */
