@@ -383,6 +383,10 @@ nav {
 [style*="diverse-professionals.jpg"]    { background-position: center 45% !important; }
 [style*="logistics-warehouse.jpg"]      { background-position: center top !important; }
 [style*="logistics-aisle.jpg"]          { background-position: center 40% !important; }
+[style*="manufacturing-floor.jpg"]      { background-position: center top !important; }
+[style*="qc-inspector.jpg"]             { background-position: center top !important; }
+[style*="education-classroom.jpg"]      { background-position: center top !important; }
+[style*="education-lecture.jpg"]        { background-position: center top !important; }
 [style*="engineering-blueprints.jpg"]   { background-position: center 40% !important; }
 
 /* ===== MOBILE RHYTHM =====
