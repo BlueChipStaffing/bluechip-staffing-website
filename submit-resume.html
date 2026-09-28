@@ -1024,6 +1024,25 @@
             backgroundPosition: '50% 100%',
             duration: 1
         });
+
+        // ===== PRE-FILL FROM JOB BOARD =====
+        const urlParams = new URLSearchParams(window.location.search);
+        const jobTitle = urlParams.get('job');
+        const jobId = urlParams.get('id');
+        if (jobTitle) {
+            const positionField = document.getElementById('position');
+            if (positionField) {
+                positionField.value = decodeURIComponent(jobTitle);
+            }
+            // Add a banner showing which job they're applying for
+            const form = document.querySelector('.resume-form') || document.querySelector('form');
+            if (form && jobId) {
+                const banner = document.createElement('div');
+                banner.style.cssText = 'background: rgba(59, 130, 246, 0.08); border: 1px solid rgba(59, 130, 246, 0.2); border-radius: 10px; padding: 16px 20px; margin-bottom: 24px; display: flex; align-items: center; gap: 12px;';
+                banner.innerHTML = '<span style="font-size: 1.3rem;">📋</span><div><p style="font-weight: 600; color: #1e3a5f; margin-bottom: 2px; font-size: 0.95rem;">Applying for: ' + decodeURIComponent(jobTitle) + '</p><p style="color: #6b7280; font-size: 0.85rem;">Job ID: ' + jobId + '</p></div>';
+                form.insertBefore(banner, form.firstChild);
+            }
+        }
     </script>
 </body>
 </html>

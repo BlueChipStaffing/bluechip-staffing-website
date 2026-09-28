@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit a Job Order | Blue Chip Staffing</title>
+    <meta name="description" content="Submit a job order to Blue Chip Staffing. Our team will start sourcing qualified candidates within 24 hours.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- GSAP from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #1e3a5f;
+            --navy-light: #2a4d78;
+            --blue: #3b82f6;
+            --blue-hover: #2563eb;
+            --cyan: #38bdf8;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --border-light: #e5e7eb;
+            --white: #ffffff;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --green: #10b981;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        button {
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        /* ===== HEADER & NAVIGATION ===== */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--white);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100px;
+        }
+
+        .logo {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 120px;
+            width: auto;
+        }
+
+        .logo a {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2px;
+            align-items: center;
+            flex: 1;
+            margin-left: 40px;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            color: var(--text-dark);
+            font-weight: 500;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background-color: var(--gray-100);
+        }
+
+        .nav-link.active {
+            color: var(--blue);
+            font-weight: 600;
+            border-bottom: 3px solid var(--blue);
+            border-radius: 0;
+        }
+
+        .dropdown-toggle::after {
+            content: '▼';
+            font-size: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-item.open .dropdown-toggle::after {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            text-align: left;
+            left: 0;
+            background: var(--white);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            min-width: 220px;
+            margin-top: 8px;
+            overflow: hidden;
+        }
+
+        .nav-item.open .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 12px 16px;
+            color: var(--text-dark);
+            font-weight: 500;
+            border-bottom: 1px solid var(--border-light);
+            transition: background-color 0.2s ease;
+        }
+
+        .dropdown-item:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-item:hover {
+            background-color: var(--gray-50);
+            color: var(--blue);
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            margin-left: auto;
+        }
+
+        .btn-primary {
+            background: var(--blue);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: var(--blue-hover);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2.5px;
+            background: var(--text-dark);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(10px, 10px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
+        }
+
+        /* ===== RESPONSIVE NAV ===== */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            nav {
+                flex-wrap: wrap;
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100px;
+                left: 0;
+                right: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                gap: 0;
+                margin: 0;
+                border-bottom: 1px solid var(--border-light);
+                max-height: calc(100vh - 100px);
+                overflow-y: auto;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-item {
+                width: 100%;
+                border-bottom: 1px solid var(--border-light);
+            }
+
+            .nav-link {
+                padding: 16px 20px;
+                border-radius: 0;
+            }
+
+            .dropdown-menu {
+                position: static;
+                display: none;
+                border: none;
+                box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.05);
+                background: var(--gray-50);
+            }
+
+            .nav-item.open .dropdown-menu {
+                display: block;
+            }
+
+            .dropdown-item {
+                padding: 12px 40px;
+            }
+
+            .nav-actions {
+                width: 100%;
+                justify-content: center;
+                gap: 8px;
+                margin-top: 16px;
+                padding: 16px 20px;
+                border-top: 1px solid var(--border-light);
+                margin-left: 0;
+            }
+
+            .btn-primary {
+                flex: 1;
+                text-align: center;
+            }
+
+            .nav-actions {
+                display: none;
+                order: 3;
+            }
+
+            .nav-menu.active ~ .nav-actions {
+                display: flex;
+            }
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            min-height: 600px;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            background-image: linear-gradient(135deg, rgba(30, 58, 95, 0.85) 0%, rgba(42, 77, 120, 0.85) 100%), url('images/photos/global-staffing.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: var(--white);
+            max-width: 800px;
+            padding: 40px 20px;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 20px;
+            line-height: 1.2;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            margin-bottom: 40px;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+        /* ===== JOB ORDER SUBMISSION SECTION ===== */
+        .job-order-section {
+            max-width: 1400px;
+            margin: 100px auto;
+            padding: 0 20px;
+        }
+
+        .job-order-form-wrapper {
+            background: var(--white);
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            scroll-fade-in: true;
+        }
+
+        .form-section-header {
+            font-size: 1.2rem;
+            color: var(--navy);
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--navy);
+        }
+
+        .form-section-header:first-of-type {
+            margin-top: 0;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-row.full {
+            grid-template-columns: 1fr;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            cursor: pointer;
+        }
+
+        .checkbox-group label {
+            margin: 0;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .file-upload-wrapper {
+            margin-top: 8px;
+        }
+
+        .file-upload-wrapper input[type="file"] {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px dashed var(--border-light);
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: var(--gray-50);
+        }
+
+        .file-upload-wrapper input[type="file"]:hover {
+            border-color: var(--blue);
+            background: var(--white);
+        }
+
+        .file-hint {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-top: 6px;
+        }
+
+        .btn-submit {
+            background: var(--blue);
+            color: var(--white);
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            margin-top: 32px;
+        }
+
+        .btn-submit:hover {
+            background: var(--blue-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .job-order-form-wrapper {
+                padding: 24px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== WHAT HAPPENS NEXT SECTION ===== */
+        .steps-section {
+            background: var(--gray-50);
+            padding: 100px 20px;
+            margin: 100px 0;
+        }
+
+        .steps-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .steps-title {
+            text-align: center;
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            color: var(--navy);
+            margin-bottom: 60px;
+            line-height: 1.2;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .step-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            scroll-fade-in: true;
+        }
+
+        .step-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .step-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--blue);
+            margin-bottom: 20px;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .step-card h3 {
+            font-size: 1.3rem;
+            color: var(--navy);
+            margin-bottom: 16px;
+        }
+
+        .step-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .steps-section {
+                padding: 60px 20px;
+            }
+
+            .steps-grid {
+                gap: 24px;
+            }
+
+            .step-card {
+                padding: 30px 20px;
+            }
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            background: var(--navy);
+            background-image: linear-gradient(135deg, rgba(30, 58, 95, 0.85) 0%, rgba(42, 77, 120, 0.85) 100%), url('images/photos/lighthouse.jpg');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 100px 20px;
+            margin: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .cta-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .cta-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: 24px;
+        }
+
+        .cta-section p {
+            margin-bottom: 32px;
+            opacity: 0.95;
+            max-width: 600px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-white {
+            background: var(--white);
+            color: var(--navy);
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .btn-white:hover {
+            background: var(--gray-50);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .cta-section {
+                padding: 60px 20px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn-white {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--navy);
+            color: var(--white);
+            padding: 60px 20px 20px;
+            margin-top: 100px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-section h4 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: var(--cyan);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--cyan);
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .footer-logo img {
+            height: 140px;
+            width: auto;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 30px;
+            text-align: center;
+        }
+
+        .footer-tagline {
+            font-size: 0.95rem;
+            opacity: 0.85;
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        .footer-copyright {
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        /* ===== SCROLL ANIMATIONS ===== */
+        .scroll-fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        /* ===== UTILITIES ===== */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER & NAVIGATION -->
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo/logo-standard.svg" alt="Blue Chip Staffing">
+                </a>
+            </div>
+
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="employers.html" class="nav-link active">Employers</a>
+                </li>
+                <li class="nav-item">
+                    <a href="careers.html" class="nav-link">Career Seekers</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link dropdown-toggle">Specialties</a>
+                    <div class="dropdown-menu">
+                        <a href="specialties/corporate.html" class="dropdown-item">Corporate & Professional</a>
+                        <a href="specialties/construction.html" class="dropdown-item">Construction</a>
+                        <a href="specialties/hospitality.html" class="dropdown-item">Hospitality</a>
+                        <a href="specialties/ai.html" class="dropdown-item">Artificial Intelligence</a>
+                        <a href="specialties/vc-pe.html" class="dropdown-item">Venture Capital / PE</a>
+                        <a href="specialties/life-sciences.html" class="dropdown-item">Life Sciences</a>
+                        <a href="specialties/quality-control.html" class="dropdown-item">Quality Control & QA</a>
+                        <a href="specialties/accounting-finance.html" class="dropdown-item">Accounting & Finance</a>
+                        <a href="specialties/administrative-clerical.html" class="dropdown-item">Administrative & Clerical</a>
+                        <a href="specialties/customer-service.html" class="dropdown-item">Customer Service</a>
+                        <a href="specialties/engineering-technical.html" class="dropdown-item">Engineering & Technical</a>
+                        <a href="specialties/healthcare.html" class="dropdown-item">Healthcare</a>
+                        <a href="specialties/information-technology.html" class="dropdown-item">Information Technology</a>
+                        <a href="specialties/logistics-supply-chain.html" class="dropdown-item">Logistics & Supply Chain</a>
+                        <a href="specialties/legal-law-firms.html" class="dropdown-item">Legal & Law Firms</a>
+                        <a href="specialties/manufacturing.html" class="dropdown-item">Manufacturing</a>
+                        <a href="specialties/nonprofit.html" class="dropdown-item">Nonprofit</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="resources.html" class="nav-link">Resources</a>
+                </li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="contact.html" class="btn-primary">Contact Us</a>
+            </div>
+
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Submit a Job Order</h1>
+            <p>Tell us what you need. Our team will start sourcing qualified candidates within 24 hours.</p>
+        </div>
+    </section>
+
+    <!-- JOB ORDER SUBMISSION FORM SECTION -->
+    <section class="job-order-section">
+        <div class="job-order-form-wrapper scroll-fade-in">
+            <form id="job-order-form">
+                <!-- YOUR INFORMATION SECTION -->
+                <h3 class="form-section-header">Your Information</h3>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="full-name">Full Name *</label>
+                        <input type="text" id="full-name" name="full-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company-name">Company Name *</label>
+                        <input type="text" id="company-name" name="company-name" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="your-title">Your Title/Role</label>
+                        <input type="text" id="your-title" name="your-title" placeholder="e.g., HR Manager, Hiring Manager">
+                    </div>
+                </div>
+
+                <!-- POSITION DETAILS SECTION -->
+                <h3 class="form-section-header">Position Details</h3>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="job-title">Job Title *</label>
+                        <input type="text" id="job-title" name="job-title" required placeholder="e.g., Senior Software Engineer">
+                    </div>
+                    <div class="form-group">
+                        <label for="num-openings">Number of Openings *</label>
+                        <input type="number" id="num-openings" name="num-openings" min="1" value="1" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="department">Department</label>
+                        <input type="text" id="department" name="department" placeholder="e.g., Engineering, Sales">
+                    </div>
+                    <div class="form-group">
+                        <label for="industry">Industry *</label>
+                        <select id="industry" name="industry" required>
+                            <option value="">Select an industry</option>
+                            <option value="corporate">Corporate & Professional</option>
+                            <option value="construction">Construction</option>
+                            <option value="hospitality">Hospitality</option>
+                            <option value="ai">Artificial Intelligence</option>
+                            <option value="vc-pe">Venture Capital / PE</option>
+                            <option value="life-sciences">Life Sciences</option>
+                            <option value="qa">Quality Control & QA</option>
+                            <option value="accounting">Accounting & Finance</option>
+                            <option value="admin">Administrative & Clerical</option>
+                            <option value="customer-service">Customer Service</option>
+                            <option value="engineering">Engineering & Technical</option>
+                            <option value="healthcare">Healthcare</option>
+                            <option value="it">Information Technology</option>
+                            <option value="logistics">Logistics & Supply Chain</option>
+                            <option value="legal">Legal & Law Firms</option>
+                            <option value="manufacturing">Manufacturing</option>
+                            <option value="nonprofit">Nonprofit</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="job-type">Job Type *</label>
+                        <select id="job-type" name="job-type" required>
+                            <option value="">Select job type</option>
+                            <option value="direct-hire">Direct Hire</option>
+                            <option value="contract-to-hire">Contract-to-Hire</option>
+                            <option value="contract">Contract</option>
+                            <option value="executive-search">Executive Search</option>
+                            <option value="managed-services">Managed Services</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="work-location">Work Location *</label>
+                        <input type="text" id="work-location" name="work-location" required placeholder="City, State or Remote">
+                    </div>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="is-remote" name="is-remote">
+                    <label for="is-remote">Is this position remote?</label>
+                </div>
+
+                <!-- COMPENSATION & TIMELINE SECTION -->
+                <h3 class="form-section-header">Compensation & Timeline</h3>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="salary-min">Salary Range Min</label>
+                        <input type="number" id="salary-min" name="salary-min" placeholder="$" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="salary-max">Salary Range Max</label>
+                        <input type="number" id="salary-max" name="salary-max" placeholder="$" min="0">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="urgency">How soon do you need this filled? *</label>
+                        <select id="urgency" name="urgency" required>
+                            <option value="">Select timeline</option>
+                            <option value="immediately">Immediately/Urgent</option>
+                            <option value="1-2-weeks">Within 1-2 weeks</option>
+                            <option value="1-month">Within 1 month</option>
+                            <option value="flexible">Flexible/No rush</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="start-date">Desired Start Date</label>
+                        <input type="date" id="start-date" name="start-date">
+                    </div>
+                </div>
+
+                <!-- ROLE REQUIREMENTS SECTION -->
+                <h3 class="form-section-header">Role Requirements</h3>
+
+                <div class="form-row full">
+                    <div class="form-group">
+                        <label for="job-description">Job Description / Key Responsibilities *</label>
+                        <textarea id="job-description" name="job-description" required placeholder="Describe the main responsibilities and key duties for this role..."></textarea>
+                    </div>
+                </div>
+
+                <div class="form-row full">
+                    <div class="form-group">
+                        <label for="required-skills">Required Skills & Qualifications *</label>
+                        <textarea id="required-skills" name="required-skills" required placeholder="List the essential skills, experience, and qualifications required..."></textarea>
+                    </div>
+                </div>
+
+                <div class="form-row full">
+                    <div class="form-group">
+                        <label for="nice-to-have">Nice-to-Have / Preferred Qualifications</label>
+                        <textarea id="nice-to-have" name="nice-to-have" placeholder="Any additional skills or qualities that would be beneficial..."></textarea>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="experience">Years of Experience Required *</label>
+                        <select id="experience" name="experience" required>
+                            <option value="">Select experience level</option>
+                            <option value="entry">Entry Level / 0-1 years</option>
+                            <option value="2-3">2-3 years</option>
+                            <option value="3-5">3-5 years</option>
+                            <option value="5-7">5-7 years</option>
+                            <option value="7-10">7-10 years</option>
+                            <option value="10plus">10+ years</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="education">Education Requirement</label>
+                        <select id="education" name="education">
+                            <option value="">Select education level</option>
+                            <option value="no-requirement">No requirement</option>
+                            <option value="hs-ged">High School / GED</option>
+                            <option value="associates">Associate's Degree</option>
+                            <option value="bachelors">Bachelor's Degree</option>
+                            <option value="masters">Master's Degree</option>
+                            <option value="phd">PhD / Doctorate</option>
+                            <option value="certification">Professional Certification</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- ADDITIONAL INFORMATION SECTION -->
+                <h3 class="form-section-header">Additional Information</h3>
+
+                <div class="form-row full">
+                    <div class="form-group">
+                        <label for="additional-info">Anything else we should know?</label>
+                        <textarea id="additional-info" name="additional-info" placeholder="Any other details about the role, company culture, or hiring process..."></textarea>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="how-heard">How did you hear about us?</label>
+                        <select id="how-heard" name="how-heard">
+                            <option value="">Select an option</option>
+                            <option value="referral">Referral</option>
+                            <option value="google">Google Search</option>
+                            <option value="linkedin">LinkedIn</option>
+                            <option value="industry-event">Industry Event</option>
+                            <option value="existing-client">Existing Client</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row full">
+                    <div class="form-group">
+                        <label for="job-description-file">Attach Job Description File</label>
+                        <div class="file-upload-wrapper">
+                            <input type="file" id="job-description-file" name="job-description-file" accept=".pdf,.doc,.docx">
+                            <p class="file-hint">Accepted formats: PDF, DOC, DOCX (max 5MB)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-submit">Submit Job Order</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- WHAT HAPPENS NEXT SECTION -->
+    <section class="steps-section">
+        <div class="steps-container">
+            <h2 class="steps-title">What Happens Next?</h2>
+            <div class="steps-grid">
+                <div class="step-card scroll-fade-in">
+                    <div class="step-number">1</div>
+                    <h3>We Review Your Order</h3>
+                    <p>Our team reviews your requirements and assigns a dedicated recruiter to your account within 24 hours.</p>
+                </div>
+                <div class="step-card scroll-fade-in">
+                    <div class="step-number">2</div>
+                    <h3>We Source Candidates</h3>
+                    <p>We tap into our pre-vetted talent network and begin screening candidates that match your specifications.</p>
+                </div>
+                <div class="step-card scroll-fade-in">
+                    <div class="step-number">3</div>
+                    <h3>You Interview & Hire</h3>
+                    <p>We present qualified candidates for your review. You choose the best fit, and we handle the rest.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <div class="cta-content">
+                <h2>Prefer to Talk First?</h2>
+                <p>Our team is ready to discuss your staffing needs. Call us or send a message.</p>
+                <div class="cta-buttons">
+                    <a href="tel:+18003090707" class="btn-white">Call 1-800-309-0707</a>
+                    <a href="contact.html" class="btn-white">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="images/logo/logo-inverse.svg" alt="Blue Chip Staffing">
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>For Employers</h4>
+                <ul>
+                    <li><a href="employers.html">Hire Talent</a></li>
+                    <li><a href="employers.html#solutions">Our Solutions</a></li>
+                    <li><a href="submit-job-order.html">Submit Job Order</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>For Job Seekers</h4>
+                <ul>
+                    <li><a href="careers.html">Browse Jobs</a></li>
+                    <li><a href="submit-resume.html">Submit Resume</a></li>
+                    <li><a href="contact.html">Get in Touch</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <ul>
+                    <li><a href="mailto:Recruitment@bluechipstaff.com">Recruitment@bluechipstaff.com</a></li>
+                    <li><a href="tel:+18003090707">1-800-309-0707</a></li>
+                </ul>
+                <div style="display: flex; gap: 16px; margin-top: 20px;">
+                    <a href="https://www.instagram.com/bluechipstaffingllc/" target="_blank" rel="noopener" style="color: var(--cyan); font-size: 0.9rem;">Instagram</a>
+                    <a href="https://www.facebook.com/bluechipstaffing" target="_blank" rel="noopener" style="color: var(--cyan); font-size: 0.9rem;">Facebook</a>
+                    <a href="https://www.linkedin.com/company/bluechipstaffing/" target="_blank" rel="noopener" style="color: var(--cyan); font-size: 0.9rem;">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="footer-tagline">Providing companies with the highest quality talent at the most reasonable rates. Family-owned, nationally trusted.</p>
+            <p class="footer-copyright">&copy; 2025 Blue Chip Staffing LLC. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // ===== MOBILE MENU TOGGLE =====
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when nav link is clicked
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (!link.classList.contains('dropdown-toggle')) {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                }
+            });
+        });
+
+        // ===== DROPDOWN TOGGLE =====
+        document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+            toggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                const parentItem = toggle.closest('.nav-item');
+                parentItem.classList.toggle('open');
+
+                // Close other dropdowns
+                document.querySelectorAll('.nav-item.open').forEach(item => {
+                    if (item !== parentItem) {
+                        item.classList.remove('open');
+                    }
+                });
+            });
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.nav-item')) {
+                document.querySelectorAll('.nav-item.open').forEach(item => {
+                    item.classList.remove('open');
+                });
+            }
+        });
+
+        // ===== FORM SUBMISSION =====
+        document.getElementById('job-order-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you! Your job order has been received. A Blue Chip recruiter will contact you within 24 hours to discuss the details.');
+            document.getElementById('job-order-form').reset();
+        });
+
+        // ===== GSAP ANIMATIONS =====
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Fade in animations on scroll
+        gsap.utils.toArray('.scroll-fade-in').forEach((element) => {
+            gsap.to(element, {
+                scrollTrigger: {
+                    trigger: element,
+                    start: 'top 80%',
+                    end: 'top 50%',
+                    scrub: false,
+                    markers: false
+                },
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                ease: 'power2.out'
+            });
+        });
+
+        // Parallax effect on hero background
+        gsap.to('.hero', {
+            scrollTrigger: {
+                trigger: '.hero',
+                start: 'top top',
+                end: 'bottom top',
+                scrub: 1,
+                markers: false
+            },
+            backgroundPosition: '50% 100%',
+            duration: 1
+        });
+    </script>
+</body>
+</html>
